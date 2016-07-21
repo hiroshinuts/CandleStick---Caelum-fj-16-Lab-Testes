@@ -10,8 +10,8 @@ public class CandleStickFactory {
 	
 	public CandleStick constroiCandleParaData(Calendar data, List<Negocio> negocios){
 		
-		Double maximo = Double.MIN_VALUE;
-		Double minimo = Double.MAX_VALUE;
+		Double maximo = negocios.get(0).getPreco();
+		Double minimo = negocios.get(0).getPreco();
 		Double volume = 0.0;
 		
 		//ForEach
@@ -25,8 +25,8 @@ public class CandleStickFactory {
 			}
 		}
 		
-		Double abertura = negocios.isEmpty() ? 0 : negocios.get(0).getPreco();
-		Double fechamento = negocios.isEmpty() ? 0 : negocios.get(negocios.size() - 1).getPreco();
+		Double abertura = negocios.get(0).getPreco();
+		Double fechamento = negocios.get(negocios.size() - 1).getPreco();
 		
 		return new CandleStick(abertura, fechamento, minimo, maximo, volume, data);
 	}

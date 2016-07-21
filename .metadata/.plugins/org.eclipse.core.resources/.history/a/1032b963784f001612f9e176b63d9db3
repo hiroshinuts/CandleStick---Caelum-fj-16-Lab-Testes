@@ -26,7 +26,7 @@ public class CandleStickFactory {
 		}
 		
 		Double abertura = negocios.isEmpty() ? 0 : negocios.get(0).getPreco();
-		Double fechamento = negocios.isEmpty() ? 0 : negocios.get(negocios.size() - 1).getPreco();
+		Double fechamento = negocios.get(negocios.size() - 1).getPreco();
 		
 		return new CandleStick(abertura, fechamento, minimo, maximo, volume, data);
 	}
