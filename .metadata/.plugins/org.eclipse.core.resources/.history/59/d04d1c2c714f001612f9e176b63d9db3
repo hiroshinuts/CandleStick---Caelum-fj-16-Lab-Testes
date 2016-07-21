@@ -1,0 +1,47 @@
+package br.com.caelum.argentum;
+
+import java.util.Calendar;
+
+public class final CandleStick {
+	
+	private Double abertura;
+	private Double fechamento;
+	private Double minimo;
+	private Double maximo;
+	private Double volume;
+	private Calendar data;
+
+	
+	public CandleStick(Double abertura, Double fechamento, Double minimo, Double maximo, Double volume, Calendar data) {
+		super();
+		this.abertura = abertura;
+		this.fechamento = fechamento;
+		this.minimo = minimo;
+		this.maximo = maximo;
+		this.volume = volume;
+		this.data = data;
+	}
+	public Double getAbertura() {
+		return abertura;
+	}
+	public Double getFechamento() {
+		return fechamento;
+	}
+	public Double getMinimo() {
+		return minimo;
+	}
+	public Double getMaximo() {
+		return maximo;
+	}
+	public Double getVolume() {
+		return volume;
+	}
+	public Calendar getData() {
+		return data;
+	}
+	
+	
+	
+	
+
+}
