@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="NegocioTest" project="fj-16-argentum" tests="2" started="2" failures="0" errors="0" ignored="0">
+  <testsuite name="br.com.caelum.argentum.NegocioTest" time="0.009">
+    <testcase name="testNegocioComDataNula" classname="br.com.caelum.argentum.NegocioTest" time="0.0"/>
+    <testcase name="testDataDoNegocioEhImutavel" classname="br.com.caelum.argentum.NegocioTest" time="0.009"/>
+  </testsuite>
+</testrun>

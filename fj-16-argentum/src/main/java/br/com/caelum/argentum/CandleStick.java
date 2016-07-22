@@ -13,7 +13,9 @@ public final class CandleStick {
 
 	
 	public CandleStick(Double abertura, Double fechamento, Double minimo, Double maximo, Double volume, Calendar data) {
-		super();
+		
+		
+		
 		this.abertura = abertura;
 		this.fechamento = fechamento;
 		this.minimo = minimo;

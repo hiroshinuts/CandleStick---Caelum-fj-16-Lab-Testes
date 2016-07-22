@@ -1,0 +1,21 @@
+package br.com.caelum.argentum;
+
+import static org.junit.Assert.*;
+
+import java.util.Calendar;
+
+import org.junit.Test;
+
+public class NegocioTest {
+
+	@Test
+	public void testDataDoNegocioEhImutavel() {
+
+		Calendar c = Calendar.getInstance();
+		c.set(Calendar.DAY_OF_MONTH, 15 );
+		
+		Negocio n = new Negocio(10.0, 5, c);
+		
+	}
+
+}
