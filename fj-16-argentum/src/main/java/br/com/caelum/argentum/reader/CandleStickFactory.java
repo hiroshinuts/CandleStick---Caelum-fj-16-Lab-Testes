@@ -1,5 +1,6 @@
 package br.com.caelum.argentum.reader;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -29,6 +30,40 @@ public class CandleStickFactory {
 		Double fechamento = negocios.isEmpty() ? 0 : negocios.get(negocios.size() - 1).getPreco();
 		
 		return new CandleStick(abertura, fechamento, minimo, maximo, volume, data);
+	}
+
+	public boolean isMesmoDia(Calendar data1, Calendar data2) {
+		
+		return data1.get(Calendar.DAY_OF_MONTH) == data2.get(Calendar.DAY_OF_MONTH)
+				&& data1.get(Calendar.MONTH) == data2.get(Calendar.MONTH)
+				&& data1.get(Calendar.YEAR) == data2.get(Calendar.YEAR);
+	}
+
+	public List<CandleStick> constroiCandles(List<Negocio> todosNegocios) {
+		
+		List<CandleStick> candles = new ArrayList<CandleStick>();
+		
+		//lista com negocios que sejam do mesmo dia que dataPrimeiro
+		List<Negocio> negociosMesmoDia = new ArrayList<Negocio>();
+		Calendar dataPrimeiro = todosNegocios.get(0).getData();
+		
+		for(Negocio negocio : todosNegocios){
+			//se nao for mesmo dia, fecha candle e reinicia variaveis
+			if(!isMesmoDia(dataPrimeiro, negocio.getData())){
+				candles.add(constroiCandleParaData(dataPrimeiro, negociosMesmoDia));
+				
+				negociosMesmoDia = new ArrayList<Negocio>();
+				dataPrimeiro = negocio.getData();
+			}
+			
+			negociosMesmoDia.add(negocio);
+		}
+		
+		//adiciona ultimo candle
+		
+		candles.add(constroiCandleParaData(dataPrimeiro, negociosMesmoDia));
+		
+		return candles;
 	}
 
 }
