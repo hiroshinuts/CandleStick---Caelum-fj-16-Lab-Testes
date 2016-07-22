@@ -1,0 +1,25 @@
+package br.com.caelum.argentum.reader;
+
+import java.util.Calendar;
+
+import org.junit.Test;
+
+import br.com.caelum.argentum.Negocio;
+
+public class CandleStickFactoryTest {
+
+	@Test
+	public void test() {
+
+		Calendar hoje = Calendar.getInstance();
+		
+		
+		Negocio negocio1 = new Negocio(40.5, 100, hoje);
+		Negocio negocio2 = new Negocio(45.0, 100, hoje);
+		Negocio negocio3 = new Negocio(39.8, 100, hoje);
+		Negocio negocio4 = new Negocio(42.3, 100, hoje);
+		
+	
+	}
+
+}
