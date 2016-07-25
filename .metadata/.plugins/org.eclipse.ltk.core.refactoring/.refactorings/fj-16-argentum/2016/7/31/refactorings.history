@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete element from project &apos;fj-16-argentum&apos;&#x0D;&#x0A;- Original project: &apos;fj-16-argentum&apos;&#x0D;&#x0A;- Original element: &apos;br.com.caelum.argentum.ui.NegociosTableModel.java&apos;" description="Delete element" element1="/src\/main\/java&lt;br.com.caelum.argentum.ui{NegociosTableModel.java" elements="1" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1469472692056" subPackages="false" version="1.0"/>
+</session>

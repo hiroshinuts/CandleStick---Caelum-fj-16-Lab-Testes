@@ -1,0 +1,35 @@
+package br.com.caelum.argentum.ui;
+
+import java.util.List;
+
+import javax.swing.table.AbstractTableModel;
+
+import br.com.caelum.argentum.Negocio;
+
+public class NegociosTableModel extends AbstractTableModel {
+
+	private final List<Negocio> negocios;
+	
+	public NegociosTableModel(List<Negocio> negocios){
+		this.negocios = negocios;
+	}
+	
+	@Override
+	public int getColumnCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getRowCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Object getValueAt(int rowIndex, int columnIndex) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

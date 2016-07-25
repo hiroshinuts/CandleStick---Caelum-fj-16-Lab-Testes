@@ -1,0 +1,15 @@
+package br.com.caelum.argentum.ui;
+
+public class ArgentumUI {
+	
+	public static void main(String[] args) {
+		
+	new ArgentumUI().montaTela();
+	
+	}
+	
+	public void montaTela(){
+		
+	}
+	
+}

@@ -1,0 +1,10 @@
+package br.com.caelum.argentum.ui;
+
+import javax.swing.table.AbstractTableModel;
+
+@SuppressWarnings("serial")
+public class NegociosTableModel extends AbstractTableModel{
+
+	
+
+}
