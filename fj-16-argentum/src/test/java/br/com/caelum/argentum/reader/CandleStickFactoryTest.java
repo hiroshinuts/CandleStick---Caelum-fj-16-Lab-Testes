@@ -11,7 +11,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import br.com.caelum.argentum.CandleStick;
+import br.com.caelum.argentum.Candle;
 import br.com.caelum.argentum.Negocio;
 
 public class CandleStickFactoryTest {
@@ -31,7 +31,7 @@ public class CandleStickFactoryTest {
 		
 		CandleStickFactory fabrica = new CandleStickFactory();
 		
-		CandleStick candle = fabrica.constroiCandleParaData(hoje, negocios);
+		Candle candle = fabrica.constroiCandleParaData(hoje, negocios);
 		
 		assertEquals(40.5, candle.getAbertura(), 0.00001);
 		assertEquals(42.3, candle.getFechamento()	, 0.00001);
@@ -49,7 +49,7 @@ public class CandleStickFactoryTest {
 		List<Negocio> negocios = Arrays.asList();
 		
 		CandleStickFactory fabrica = new CandleStickFactory();
-		CandleStick candle = fabrica.constroiCandleParaData(hoje, negocios);
+		Candle candle = fabrica.constroiCandleParaData(hoje, negocios);
 		
 		assertEquals(0.0, candle.getVolume(), 0.00001);
 		
@@ -66,7 +66,7 @@ public class CandleStickFactoryTest {
 		List<Negocio> negocios = Arrays.asList(negocio1);
 		
 		CandleStickFactory fabrica = new CandleStickFactory();
-		CandleStick candle = fabrica.constroiCandleParaData(hoje, negocios);
+		Candle candle = fabrica.constroiCandleParaData(hoje, negocios);
 		
 		assertEquals(40.5, candle.getAbertura(), 0.00001);
 		assertEquals(40.5, candle.getFechamento(), 0.00001);
@@ -123,7 +123,7 @@ public class CandleStickFactoryTest {
 		
 		CandleStickFactory fabrica = new CandleStickFactory();
 		
-		List<CandleStick> candles = fabrica.constroiCandles(negocios);
+		List<Candle> candles = fabrica.constroiCandles(negocios);
 		
 		assertEquals(3, candles.size());
 		assertEquals(40.5, candles.get(0).getAbertura(), 0.00001);

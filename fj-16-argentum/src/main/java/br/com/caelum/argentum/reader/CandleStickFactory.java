@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import br.com.caelum.argentum.CandleStick;
+import br.com.caelum.argentum.Candle;
 import br.com.caelum.argentum.Negocio;
 
 public class CandleStickFactory {
 	
-	public CandleStick constroiCandleParaData(Calendar data, List<Negocio> negocios){
+	public Candle constroiCandleParaData(Calendar data, List<Negocio> negocios){
 		
 		Double maximo = Double.MIN_VALUE;
 		Double minimo = Double.MAX_VALUE;
@@ -29,7 +29,7 @@ public class CandleStickFactory {
 		Double abertura = negocios.isEmpty() ? 0 : negocios.get(0).getPreco();
 		Double fechamento = negocios.isEmpty() ? 0 : negocios.get(negocios.size() - 1).getPreco();
 		
-		return new CandleStick(abertura, fechamento, minimo, maximo, volume, data);
+		return new Candle(abertura, fechamento, minimo, maximo, volume, data);
 	}
 
 	public boolean isMesmoDia(Calendar data1, Calendar data2) {
@@ -39,9 +39,9 @@ public class CandleStickFactory {
 				&& data1.get(Calendar.YEAR) == data2.get(Calendar.YEAR);
 	}
 
-	public List<CandleStick> constroiCandles(List<Negocio> todosNegocios) {
+	public List<Candle> constroiCandles(List<Negocio> todosNegocios) {
 		
-		List<CandleStick> candles = new ArrayList<CandleStick>();
+		List<Candle> candles = new ArrayList<Candle>();
 		
 		//lista com negocios que sejam do mesmo dia que dataPrimeiro
 		List<Negocio> negociosMesmoDia = new ArrayList<Negocio>();
@@ -50,7 +50,7 @@ public class CandleStickFactory {
 		for(Negocio negocio : todosNegocios){
 			//se nao for mesmo dia, fecha candle e reinicia variaveis
 			if(!isMesmoDia(dataPrimeiro, negocio.getData())){
-				candles.add(constroiCandleParaData(dataPrimeiro, negociosMesmoDia));
+				fecharCandle(candles, negociosMesmoDia, dataPrimeiro);
 				
 				negociosMesmoDia = new ArrayList<Negocio>();
 				dataPrimeiro = negocio.getData();
@@ -61,9 +61,13 @@ public class CandleStickFactory {
 		
 		//adiciona ultimo candle
 		
-		candles.add(constroiCandleParaData(dataPrimeiro, negociosMesmoDia));
+		fecharCandle(candles, negociosMesmoDia, dataPrimeiro);
 		
 		return candles;
+	}
+
+	private void fecharCandle(List<Candle> candles, List<Negocio> negociosMesmoDia, Calendar dataPrimeiro) {
+		candles.add(constroiCandleParaData(dataPrimeiro, negociosMesmoDia));
 	}
 
 }
